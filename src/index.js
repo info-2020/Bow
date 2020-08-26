@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '@/styles/index.less';
-import App from './App';
 import client from '@/query/index';
+import routes from '@/router/index';
 import { ApolloProvider } from '@apollo/client';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
   </ApolloProvider>,
   document.getElementById('root')
 );
